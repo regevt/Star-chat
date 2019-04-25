@@ -1,0 +1,33 @@
+{
+  "name": "StarChatApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "ios": "react-native run-ios",
+    "android": "react-native run-android",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "16.8.3",
+    "react-native": "0.59.4",
+    "react-native-device-info": "^1.5.0",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
+    "react-native-keyboard-input": "^5.3.1",
+    "react-native-router-flux": "^4.0.6",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.3",
+    "@babel/runtime": "7.4.3",
+    "babel-jest": "24.7.1",
+    "jest": "24.7.1",
+    "metro-react-native-babel-preset": "0.53.1",
+    "react-test-renderer": "16.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

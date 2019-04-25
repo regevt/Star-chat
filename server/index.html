@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star Chat</title>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+</head>
+
+<body>
+    <input id="username" type="text" placeholder="username..." />
+    <div id="messages" />
+    <input id="msg" type="textarea" placeholder="message..." />
+    <button id="send" onclick="sendMsg">send</button>
+
+    <script>
+        var socket = io();
+
+        const sendBtn = document.querySelector("#send");
+
+        sendBtn.addEventListener('click', (event) => {
+            const usernameEl = document.querySelector("#username");
+            const msgEl = document.querySelector("#msg");
+
+            console.log(usernameEl.value);
+            socket.emit('msg', {
+                "username": usernameEl.value,
+                "message": msgEl.value
+            })
+        });
+
+        socket.on('output', data => {
+            console.log('output');
+            const messagesEl = document.querySelector("#messages");
+            const msgDiv = document.createElement('div');
+            msgDiv.innerText = `${data.username}: ${data.message}`;
+            messagesEl.appendChild(msgDiv);
+        });
+
+    </script>
+</body>
+
+</html>
